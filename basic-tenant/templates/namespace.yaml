@@ -1,0 +1,9 @@
+{{- range .Values.appNamespaces }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ . | quote }}
+  labels:
+    application: product
+{{- end }}
