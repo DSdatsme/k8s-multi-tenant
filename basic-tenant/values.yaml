@@ -1,0 +1,16 @@
+appNamespaces:
+  - ns1
+  - ns2
+  - ns3
+
+appOne:
+  name: nginx-one
+  namespace: ns3
+  image: nginx:latest
+
+appTwo:
+  name: hello-k8s
+  namespace: ns2
+  # image: paulbouwer/hello-kubernetes:1.7
+  image: nginx
+

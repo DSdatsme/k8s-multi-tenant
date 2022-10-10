@@ -1,0 +1,23 @@
+{{- range .Values.appNamespaces }}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-{{ . }}
+  namespace: {{ . }}
+spec:
+  podSelector:  {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          application: product
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          application: product
+{{- end }}
